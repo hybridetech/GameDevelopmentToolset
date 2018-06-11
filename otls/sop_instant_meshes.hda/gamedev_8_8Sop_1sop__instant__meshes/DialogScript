@@ -55,7 +55,7 @@
             name    "instant_meshes_exe"
             label   "Instant Meshes Location"
             type    file
-            default { "$HOUDINI_USER_PREF_DIR/Instant Meshes.exe" }
+            default { "$INSTANT_MESHES" }
             range   { 0 1 }
         }
         parm {
