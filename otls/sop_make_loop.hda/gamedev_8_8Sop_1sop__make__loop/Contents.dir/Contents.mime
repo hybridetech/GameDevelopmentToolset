@@ -20,9 +20,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.323529 0.745
+position -1.48824 -0.866765
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -34,8 +34,8 @@ inputs
 }
 stat
 {
-  create 1522782734
-  modify 1522782771
+  create 1537905289
+  modify 1537905319
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -52,6 +52,14 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"0.1"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"5"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"gamedev::sop_make_loop"
 	}
 }
 
@@ -156,7 +164,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -265,7 +273,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -374,7 +382,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -464,7 +472,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -544,7 +552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -641,7 +649,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -702,7 +710,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 
@@ -761,7 +769,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.603"
 	}
 }
 

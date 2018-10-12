@@ -1,7 +1,7 @@
 Operator:     gamedev::sop_autouv
 Label:        GameDev Auto UV 
 Path:         oplib:/gamedev::Sop/sop_autouv?gamedev::Sop/sop_autouv
-Icon:         SOP_uvunwrap
+Icon:         opdef:/gamedev::Sop/sop_autouv?IconSVG
 Table:        Sop
 License:      
 Extra:        
@@ -10,5 +10,5 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Mon Apr  9 10:34:19 2018
+Modified:     Tue Sep 25 15:57:54 2018
 

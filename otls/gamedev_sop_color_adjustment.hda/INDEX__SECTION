@@ -1,0 +1,14 @@
+Operator:     gamedev::sop_color_adjustment
+Label:        GameDev Color Adjustment
+Path:         oplib:/gamedev::Sop/sop_color_adjustment?gamedev::Sop/sop_color_adjustment
+Icon:         BUTTONS_secondary_colors
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Sep 20 15:04:51 2018
+

@@ -1,0 +1,14 @@
+Operator:     gamedev::simple_rbd
+Label:        Simple RBD
+Path:         oplib:/gamedev::Sop/simple_rbd?gamedev::Sop/simple_rbd
+Icon:         DOP_rbdpackedobject
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 4
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Sep 20 14:47:01 2018
+

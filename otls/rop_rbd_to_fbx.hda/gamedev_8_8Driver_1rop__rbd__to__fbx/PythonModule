@@ -12,7 +12,7 @@ def export(node):
     if exportparm_val[:3] == "../":
         export_path = "../"+exportparm_val
     
-    export_node = hou.node(export_path).path()
+    export_node = hou.node('../Import/COPY').path()
 
     # If Not /obj level node selected, get /obj level parent
     if hou.node(export_node).type().category() != hou.objNodeTypeCategory():
@@ -21,13 +21,16 @@ def export(node):
             parent_node = parent_node.parent()
         export_node = parent_node.path()
 
+    # create exporter
     exporter = FractureExporter()
+
+    #export
     exporter.export(hou.node(export_node))
 
 
 def cleanup():
 
-    container_node = hou.pwd().parent().node("objnet1")
+    container_node = hou.pwd().parent().node("Export")
     parent_node = hou.node(container_node.path() + '/FBX_EXPORT')
     for child in parent_node.children():
         child.destroy()
@@ -71,7 +74,7 @@ class FractureExporter(object):
         self.gather_parent_scale()
         self.build_individual_nodes()
         self.animate_individual_nodes()
-
+                
     def get_selection(self, export_node = None):
 
         if not export_node:
@@ -105,17 +108,17 @@ class FractureExporter(object):
             raise hou.Error("Please select a packed primitive object to export")
 
     def get_time_range(self):
-        playback_range = hou.playbar.playbackRange()
-
-        self.start_frame = int(playback_range[0])
-        self.end_frame = int(playback_range[1])
+        
+        
+        self.start_frame = int(hou.pwd().parent().parm("f1").eval())
+        self.end_frame = int(hou.pwd().parent().parm("f2").eval())
 
         hou.setFrame(self.start_frame)
 
     def create_parent_node(self):
-        container_node = hou.pwd().parent().node("objnet1")
+        container_node = hou.pwd().parent().node("Export")
         self.parent_node = hou.node(container_node.path() + '/FBX_EXPORT')
-
+        
         self.transform_node = self.parent_node.createNode('subnet', node_name="TRANSFORM_NODE", run_init_scripts=False)
 
         self.transform_node.parm('tx').setExpression('ch("../../../tx")')
@@ -142,10 +145,7 @@ class FractureExporter(object):
 
         for prim in frame_prims:
             point = prim.vertices()[0].point()
-            try:
-                packed_name = prim.attribValue("name")
-            except:
-                packed_name = point.attribValue("name")
+            packed_name = prim.attribValue("name")
 
             new_object = PackedObject()
 
@@ -179,6 +179,8 @@ class FractureExporter(object):
             
             
     def build_individual_nodes(self):
+
+        export_as_transforms = hou.pwd().parent().parm('bExportEmptyTransforms').evalAsInt()
 
         for export_object in self.export_objects:
             name = export_object.name
@@ -216,11 +218,11 @@ class FractureExporter(object):
             transformNode.parm('ty').setExpression('-$CEY')
             transformNode.parm('tz').setExpression('-$CEZ')
 
-            transformNode.parm('sx').set(self.scale_x)
-            transformNode.parm('sy').set(self.scale_y)
-            transformNode.parm('sz').set(self.scale_z)
-            transformNode.parm('scale').set(self.uniform_scale)
-            
+            # This caused the top parms to essentially do scale = scale*scale..... Major bug
+            #transformNode.parm('sx').set(self.scale_x)
+            #transformNode.parm('sy').set(self.scale_y)
+            #transformNode.parm('sz').set(self.scale_z)
+            #transformNode.parm('scale').set(self.uniform_scale)
             
             transformNode.setNextInput(timeShift)
             transformNode.moveToGoodPosition()
@@ -239,8 +241,13 @@ class FractureExporter(object):
             switchNode.setNextInput(transformNode)
             switchNode.moveToGoodPosition()
 
-            switchNode.setDisplayFlag(True)
-            switchNode.setRenderFlag(True)
+            if export_as_transforms == 1:
+                output_node = geo_node.createNode('output')
+                output_node.setDisplayFlag(True)
+                output_node.setRenderFlag(True)
+            else:
+                switchNode.setDisplayFlag(True)
+                switchNode.setRenderFlag(True)
 
             # cache the hou node
             export_object.hou_node = geo_node
@@ -258,7 +265,6 @@ class FractureExporter(object):
                 pivot_2 = [houdini_node.parm("px").eval(), houdini_node.parm("py").eval(), houdini_node.parm("pz").eval()]
 
                 baked_transform = export_object.initial_packed_transform.inverted()
-
                 baked_transform *= hou.Matrix4(prim.intrinsicValue("packedfulltransform"))
                 baked_transform *= self.selected_obj_node.worldTransform()
 

@@ -1,0 +1,14 @@
+Operator:     gamedev::niagara_impacts
+Label:        GameDev Niagara Impacts
+Path:         oplib:/gamedev::Sop/niagara_impacts?gamedev::Sop/niagara_impacts
+Icon:         DOP_particlefluidemitter
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Sep 20 14:54:37 2018
+

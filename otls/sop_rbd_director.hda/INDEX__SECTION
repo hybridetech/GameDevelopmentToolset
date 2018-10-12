@@ -1,0 +1,14 @@
+Operator:     gamedev::rbd_director
+Label:        GameDev RBD Director
+Path:         oplib:/gamedev::Sop/rbd_director?gamedev::Sop/rbd_director
+Icon:         DOP_bulletdata
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Sep 20 14:57:23 2018
+

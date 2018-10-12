@@ -1,0 +1,14 @@
+Operator:     gamedev::niagara_interpolate
+Label:        GameDev Niagara Interpolate
+Path:         oplib:/gamedev::Sop/niagara_interpolate?gamedev::Sop/niagara_interpolate
+Icon:         DOP_particlefluidemitter
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Sep 20 14:48:33 2018
+

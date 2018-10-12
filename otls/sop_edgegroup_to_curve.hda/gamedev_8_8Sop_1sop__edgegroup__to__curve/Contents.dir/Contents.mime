@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.54706 -1.89618
+position 11.296 3.8403
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1522780054
-  modify 1522780057
+  create 1537468954
+  modify 1537470037
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -63,7 +63,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.2"
+		"value":"0.3"
 	}
 }
 
@@ -182,7 +182,7 @@ inputs
 stat
 {
   create 1511361558
-  modify 1516824220
+  modify 1532464220
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -190,6 +190,32 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color2.chn"
+Content-Type: text/plain
+
+{
+    channel colorr {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../polywire_colorr\") }
+    }
+    channel colorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../polywire_colorg\") }
+    }
+    channel colorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../polywire_colorb\") }
+    }
+  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/color2.parm"
@@ -202,7 +228,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
 class	[ 0	locks=0 ]	(	1	)
 colortype	[ 0	locks=0 ]	(	0	)
-color	[ 0	locks=0 ]	(	1	0	0	)
+color	[ 8	locks=0 ]	(	[ colorr	1 ] 	[ colorg	0 ] 	[ colorb	0 ] 	)
 seed	[ 0	locks=0 ]	(	0	)
 rampattribute	[ 0	locks=0 ]	(	""	)
 ramprange	[ 0	locks=0 ]	(	0	1	)
@@ -517,7 +543,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -527,7 +553,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -602,7 +628,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -661,7 +687,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -742,7 +768,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -824,7 +850,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -895,7 +921,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -961,7 +987,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -1037,7 +1063,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -1072,7 +1098,7 @@ inputs
 stat
 {
   create 1511361494
-  modify 1516824220
+  modify 1532464220
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1100,7 +1126,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -1164,7 +1190,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -1232,7 +1258,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -1330,7 +1356,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 
@@ -1396,7 +1422,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.584"
 	}
 }
 

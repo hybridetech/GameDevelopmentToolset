@@ -1,0 +1,14 @@
+Operator:     gamedev::sop_color_blend
+Label:        GameDev Color Blend
+Path:         oplib:/gamedev::Sop/sop_color_blend?gamedev::Sop/sop_color_blend
+Icon:         COMMON_blend
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Sep 20 15:06:20 2018
+

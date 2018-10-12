@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.40588 0.215588
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 6.83065 4.53726
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -46,8 +47,8 @@ inputs
 }
 stat
 {
-  create 1522783205
-  modify 1522783214
+  create 1528468569
+  modify 1538167339
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -63,7 +64,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.2"
 	}
 }
 
@@ -82,7 +83,7 @@ sopflags sopflags =
 comment ""
 position -2.68731 8.21972
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -96,7 +97,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1522783216
+  modify 1538169371
   author Luiz@Luiz-PC
   access 0777
 }
@@ -195,14 +196,14 @@ class OSMParser(object):
     def __init__(self, osm_file):
         self.osm_file = osm_file
 
-        self.min_lat = 0
-        self.max_lat = 0
+        self.min_lat = -1
+        self.max_lat = 1
 
-        self.min_lon = 0
-        self.max_lon = 0
+        self.min_lon = -1
+        self.max_lon = 1
 
-        self.length = 0
-        self.height = 0
+        self.length = 500  
+        self.height = 500
 
         self.ways = []
         self.nodes = {}
@@ -214,6 +215,8 @@ class OSMParser(object):
         self.height = latlong_distance([self.min_lat, self.min_lon], [self.min_lat, self.max_lon])
 
     def get_relative_coordinates(self, lat_long):
+    
+    
         rel_lat = (lat_long[0] - self.min_lat) / (self.max_lat - self.min_lat) * self.length
         rel_lon = (lat_long[1] - self.min_lon) / (self.max_lon - self.min_lon) * self.height
 
@@ -252,18 +255,29 @@ class OSMParser(object):
         if not geo.findPrimAttrib(\"hou_node\"):
             geo.addAttrib(hou.attribType.Prim, \"hou_node\", 0)
 
+        if not geo.findPointAttrib(\"latitude\"):
+            geo.addAttrib(hou.attribType.Point, \"latitude\", 0.0)
+
+        if not geo.findPointAttrib(\"longitude\"):
+            geo.addAttrib(hou.attribType.Point, \"longitude\", 0.0)
 
         for way in self.ways:
             positions = []
+            latlongs = []
             for node_id in way.nodes:
                 node = self.nodes[node_id]
                 pos_xy = self.get_relative_coordinates([float(node.lat), float(node.lon)])
                 positions.append((pos_xy[0], 0, pos_xy[1]))
+                latlongs.append([float(node.lat), float(node.lon)])
 
             points = geo.createPoints(positions)
             poly = geo.createPolygon()
 
-            if \"building\" not in way.tags and \"buildingpart\" not in way.tags:
+            for x, point in enumerate(points):
+                point.setAttribValue(\"latitude\", latlongs[x][0])
+                point.setAttribValue(\"longitude\", latlongs[x][1])
+
+            if \"building\" not in way.tags and \"buildingpart\" not in way.tags and \"building_part\" not in way.tags: 
                 poly.setIsClosed(0)
 
             if READ_BUILDING_COLORS:
@@ -363,7 +377,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
@@ -426,7 +440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
@@ -500,7 +514,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
@@ -563,7 +577,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
@@ -691,7 +705,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
@@ -752,7 +766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
@@ -788,7 +802,7 @@ sopflags sopflags =
 comment ""
 position -2.68731 6.09934
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -803,7 +817,7 @@ inputs
 stat
 {
   create 1522783210
-  modify 1522783226
+  modify 1537307882
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -828,7 +842,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.607"
 	}
 }
 
